@@ -65,7 +65,7 @@ type Device struct {
 	//   integer
 	// Description:
 	//   The general type of device. Refer to List 5.17.
-	DeviceType int8 `json:"devicetype,omitempty"`
+	DeviceType DeviceType `json:"devicetype,omitempty"`
 
 	// Attribute:
 	//   make
@@ -170,7 +170,6 @@ type Device struct {
 	// Description:
 	//   Carrier or ISP (e.g., “VERIZON”). “WIFI” is often used in mobile
 	//   to indicate high bandwidth (e.g., video friendly vs. cellular).
-	//   connectiontype integer Network connection type. Refer to List 5.18.
 	Carrier string `json:"carrier,omitempty"`
 
 	// Attribute:
@@ -179,7 +178,7 @@ type Device struct {
 	//   integer
 	// Description:
 	//   Network connection type. Refer to List 5.18.
-	Connectiontype int8 `json:"connectiontype,omitempty"`
+	Connectiontype ConnectionType `json:"connectiontype,omitempty"`
 
 	// Attribute:
 	//   ifa

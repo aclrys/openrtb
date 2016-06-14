@@ -48,3 +48,9 @@ Provide base for OpenRTB-related projects, focusing on:
 - Each RTB type should be kept in its own file, named after type
 - File names are in underscore_case, e.g., ```type BidRequest``` should be declared in ```bid_request.go```
 - [go fmt your code](https://blog.golang.org/go-fmt-your-code)
+
+# TODO for section 5. Enumerated Lists Specification
+
+[ ] Check, that corresponding enum types are used in all the OpenRTB objects
+[ ] README - code conventions for enums (types and constants)
+[ ] Review enum type and constant names

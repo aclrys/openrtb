@@ -87,7 +87,7 @@ type Content struct {
 	//   integer
 	// Description:
 	//   Video quality per IAB’s classification. Refer to List 5.11.
-	VideoQuality int8 `json:"videoquality,omitempty"`
+	VideoQuality VideoQuality `json:"videoquality,omitempty"`
 
 	// Attribute:
 	//   context
@@ -95,7 +95,7 @@ type Content struct {
 	//   integer
 	// Description:
 	//   Type of content (game, video, text, etc.). Refer to List 5.14.
-	Context int8 `json:"context,omitempty"`
+	Context ContentContext `json:"context,omitempty"`
 
 	// Attribute:
 	//   contentrating
@@ -119,7 +119,7 @@ type Content struct {
 	//   integer
 	// Description:
 	//   Media rating per QAG guidelines. Refer to List 5.15.
-	QAGMediaRating int8 `json:"qagmediarating,omitempty"`
+	QAGMediaRating QAGMediaRating `json:"qagmediarating,omitempty"`
 
 	// Attribute:
 	//   keywords

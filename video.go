@@ -48,7 +48,7 @@ type Video struct {
 	//   Supported video bid response protocol. Refer to List 5.8. At
 	//   least one supported protocol must be specified in either the
 	//   protocol or protocols attribute.
-	Protocol []int8 `json:"protocol,omitempty"`
+	Protocol []VideoBidResponseProtocol `json:"protocol,omitempty"`
 
 	// Attribute:
 	//   protocols
@@ -58,7 +58,7 @@ type Video struct {
 	//   Array of supported video bid response protocols. Refer to List
 	//   5.8. At least one supported protocol must be specified in
 	//   either the protocol or protocols attribute.
-	Protocols []int8 `json:"protocols,omitempty"`
+	Protocols []VideoBidResponseProtocol `json:"protocols,omitempty"`
 
 	// Attribute:
 	//   w
@@ -84,7 +84,7 @@ type Video struct {
 	//   Indicates the start delay in seconds for pre-roll, mid-roll, or
 	//   post-roll ad placements. Refer to List 5.10 for additional
 	//   generic values.
-	StartDelay int64 `json:"startdelay,omitempty"`
+	StartDelay VideoStartDelay `json:"startdelay,omitempty"`
 
 	// Attribute:
 	//   linearity
@@ -93,7 +93,7 @@ type Video struct {
 	// Description:
 	//   Indicates if the impression must be linear, nonlinear, etc. If
 	//   none specified, assume all are allowed. Refer to List 5.7.
-	Linearity int8 `json:"linearity,omitempty"`
+	Linearity VideoLinearity `json:"linearity,omitempty"`
 
 	// Attribute:
 	//   sequence
@@ -111,7 +111,7 @@ type Video struct {
 	//   integer array
 	// Description:
 	//   Blocked creative attributes. Refer to List 5.3.
-	BAttr []int8 `json:"battr,omitempty"`
+	BAttr []CreativeAttribute `json:"battr,omitempty"`
 
 	// Attribute:
 	//   maxextended
@@ -159,7 +159,7 @@ type Video struct {
 	// Description:
 	//   Allowed playback methods. If none specified, assume all are
 	//   allowed. Refer to List 5.9.
-	PlaybackMethod []int8 `json:"playbackmethod,omitempty"`
+	PlaybackMethod []VideoPlaybackMethod `json:"playbackmethod,omitempty"`
 
 	// Attribute:
 	//   delivery
@@ -168,7 +168,7 @@ type Video struct {
 	// Description:
 	//   Supported delivery methods (e.g., streaming, progressive). If
 	//   none specified, assume all are supported. Refer to List 5.13.
-	Delivery []int8 `json:"delivery,omitempty"`
+	Delivery []ContentDeliveryMethod `json:"delivery,omitempty"`
 
 	// Attribute:
 	//   pos
@@ -176,7 +176,7 @@ type Video struct {
 	//   integer
 	// Description:
 	//   Ad position on screen. Refer to List 5.4
-	Pos int8 `json:"pos,omitempty"`
+	Pos AdPosition `json:"pos,omitempty"`
 
 	// Attribute:
 	//   companionad
@@ -194,7 +194,7 @@ type Video struct {
 	// Description:
 	//   List of supported API frameworks for this impression. Refer to
 	//   List 5.6. If an API is not explicitly listed, it is assumed not to be supported.
-	API []int8 `json:"api,omitempty"`
+	API []APIFramework `json:"api,omitempty"`
 
 	// Attribute:
 	//   companiontype
@@ -204,7 +204,7 @@ type Video struct {
 	//   Supported VAST companion ad types. Refer to List 5.12.
 	//   Recommended if companion Banner objects are included via
 	//   the companionad array.
-	CompanionType []int8 `json:"companiontype,omitempty"`
+	CompanionType []VASTCompanionType `json:"companiontype,omitempty"`
 
 	// Attribute:
 	//   ext
