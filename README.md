@@ -51,6 +51,7 @@ Provide base for OpenRTB-related projects, focusing on:
 
 # TODO for section 5. Enumerated Lists Specification
 
-[ ] Check, that corresponding enum types are used in all the OpenRTB objects
-[ ] README - code conventions for enums (types and constants)
-[ ] Review enum type and constant names
+- [ ] Check, that corresponding enum types are used in all the OpenRTB objects
+- [ ] README - code conventions for enums (types and constants)
+- [ ] Review enum type and constant names
+- [ ] Add constants for all the possible enums (like Yes/No attrs etc.)
