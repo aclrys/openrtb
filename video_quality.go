@@ -10,5 +10,5 @@ const (
 	VideoQualityUnknown                VideoQuality = 0 // 0 Unknown
 	VideoQualityProfessionallyProduced VideoQuality = 1 // 1 Professionally Produced
 	VideoQualityProsumer               VideoQuality = 2 // 2 Prosumer
-	VideoQualityUserGeneratedUGC       VideoQuality = 3 // 3 User Generated (UGC)
+	VideoQualityUserGenerated          VideoQuality = 3 // 3 User Generated (UGC)
 )
