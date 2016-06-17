@@ -1,5 +1,16 @@
 package openrtb
 
+// Gender, where “M” = male, “F” = female, “O” = known to be
+// other (i.e., omitted is unknown).
+type UserGender string
+
+const (
+	UserGenderMale    UserGender = "M" // “M” = male
+	UserGenderFemale  UserGender = "F" // “F” = female
+	UserGenderOther   UserGender = "O" // “O” = known to be other
+	UserGenderUnknown UserGender = ""  // omitted is unknown
+)
+
 // 3.2.13 Object: User
 //
 // This object contains information known or derived about the human user of the device (i.e., the
@@ -41,7 +52,7 @@ type User struct {
 	// Description:
 	//   Gender, where “M” = male, “F” = female, “O” = known to be
 	//   other (i.e., omitted is unknown).
-	Gender string `json:"gender,omitempty"`
+	Gender UserGender `json:"gender,omitempty"`
 
 	// Attribute:
 	//   keywords

@@ -1,5 +1,37 @@
 package openrtb
 
+// Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.
+type BidRequestTest int8
+
+const (
+	BidRequestTestNo  BidRequestTest = 0 // 0 = live mode
+	BidRequestTestYes BidRequestTest = 1 // 1 = test mode.
+)
+
+// Auction type, where 1 = First Price, 2 = Second Price Plus.
+// Exchange-specific auction types can be defined using values
+// greater than 500.
+type BidRequestAT int8
+
+const (
+	// Exchange-specific auction types can be defined using values
+	// greater than 500.
+	BidRequestATFirstPrice      BidRequestAT = 1 // 1 = First Price
+	BidRequestATSecondPricePlus BidRequestAT = 2 // 2 = Second Price Plus
+)
+
+// Flag to indicate if Exchange can verify that the impressions
+// offered represent all of the impressions available in context
+// (e.g., all on the web page, all video spots such as pre/mid/post
+// roll) to support road-blocking. 0 = no or unknown, 1 = yes, the
+// impressions offered represent all that are available.
+type BidRequestAllImps int8
+
+const (
+	BidRequestAllImpsNo  BidRequestAllImps = 0 // 0 = no or unknown
+	BidRequestAllImpsYes BidRequestAllImps = 1 // 1 = yes, the impressions offered represent all that are available.
+)
+
 // 3.2.1 Object: BidRequest
 //
 // The top-level bid request object contains a globally unique bid request or auction ID. This id attribute is
@@ -69,7 +101,7 @@ type BidRequest struct {
 	//   integer; default 0
 	// Description:
 	//    Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.
-	Test int8 `json:"test,omitempty"`
+	Test BidRequestTest `json:"test,omitempty"`
 
 	// Attribute:
 	//   at
@@ -79,7 +111,7 @@ type BidRequest struct {
 	//    Auction type, where 1 = First Price, 2 = Second Price Plus.
 	//    Exchange-specific auction types can be defined using values
 	//    greater than 500.
-	AT int8 `json:"at,omitempty"`
+	AT BidRequestAT `json:"at,omitempty"`
 
 	// Attribute:
 	//   tmax
@@ -94,7 +126,7 @@ type BidRequest struct {
 	// Type:
 	//   string array
 	// Description:
-	//   Whitelist of buyer seats allowed to bid on this deal.  Seat IDs must be
+	//   Whitelist of buyer seats allowed to bid on this deal. Seat IDs must be
 	//   communicated between bidders and the exchange a priori. Omission implies no seat restrictions.
 	WSeat []string `json:"wseat,omitempty"`
 
@@ -108,7 +140,7 @@ type BidRequest struct {
 	//   (e.g., all on the web page, all video spots such as pre/mid/post
 	//   roll) to support road-blocking. 0 = no or unknown, 1 = yes, the
 	//   impressions offered represent all that are available.
-	AllImps int8 `json:"allimps,omitempty"`
+	AllImps BidRequestAllImps `json:"allimps,omitempty"`
 
 	// Attribute:
 	//   cur

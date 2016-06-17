@@ -1,5 +1,14 @@
 package openrtb
 
+// 0 = impressions can be won individually; 1 = impressions must
+// be won or lost as a group.
+type SeatBidGroup int8
+
+const (
+	SeatBidGroupNo  SeatBidGroup = 0 // 0 = impressions can be won individually
+	SeatBidGroupYes SeatBidGroup = 1 // 1 = impressions must be won or lost as a group
+)
+
 // 4.2.2 Object: SeatBid
 //
 // A bid response can contain multiple SeatBid objects, each on behalf of a different bidder seat and each
@@ -32,7 +41,7 @@ type SeatBid struct {
 	// Description:
 	//   0 = impressions can be won individually; 1 = impressions must
 	//   be won or lost as a group.
-	Group int8 `json:"group,omitempty"`
+	Group SeatBidGroup `json:"group,omitempty"`
 
 	// Attribute:
 	//   ext

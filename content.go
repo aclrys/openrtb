@@ -1,5 +1,30 @@
 package openrtb
 
+// 0 = not live, 1 = content is live (e.g., stream, live blog).
+type ContentLiveStream int8
+
+const (
+	ContentLiveStreamNo  ContentLiveStream = 0 // 0 = not live
+	ContentLiveStreamYes ContentLiveStream = 1 // 1 = content is live (e.g., stream, live blog)
+)
+
+// 0 = indirect, 1 = direct.
+type ContentSourceRelationship int8
+
+const (
+	ContentSourceRelationshipIndirect ContentSourceRelationship = 0 // 0 = indirect
+	ContentSourceRelationshipDirect   ContentSourceRelationship = 1 // 1 = direct
+)
+
+// Indicator of whether or not the content is embeddable (e.g.,
+// an embeddable video player), where 0 = no, 1 = yes.
+type ContentEmbeddable int8
+
+const (
+	ContentEmbeddableNo  ContentEmbeddable = 0 // 0 = no
+	ContentEmbeddableYes ContentEmbeddable = 1 // 1 = yes
+)
+
 // 3.2.9 Object: Content
 //
 // This object describes the content in which the impression will appear, which may be syndicated or nonsyndicated
@@ -135,7 +160,7 @@ type Content struct {
 	//   integer
 	// Description:
 	//   0 = not live, 1 = content is live (e.g., stream, live blog).
-	LiveStream int8 `json:"livestream,omitempty"`
+	LiveStream ContentLiveStream `json:"livestream,omitempty"`
 
 	// Attribute:
 	//   sourcerelationship
@@ -143,7 +168,7 @@ type Content struct {
 	//   integer
 	// Description:
 	//   0 = indirect, 1 = direct.
-	SourceRelationship int8 `json:"sourcerelationship,omitempty"`
+	SourceRelationship ContentSourceRelationship `json:"sourcerelationship,omitempty"`
 
 	// Attribute:
 	//   len
@@ -168,7 +193,7 @@ type Content struct {
 	// Description:
 	//   Indicator of whether or not the content is embeddable (e.g.,
 	//   an embeddable video player), where 0 = no, 1 = yes.
-	Embeddable int8 `json:"embeddable,omitempty"`
+	Embeddable ContentEmbeddable `json:"embeddable,omitempty"`
 
 	// Attribute:
 	//   ext

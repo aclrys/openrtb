@@ -1,5 +1,29 @@
 package openrtb
 
+// Maximum extended video ad duration if extension is allowed.
+// If blank or 0, extension is not allowed. If -1, extension is
+// allowed, and there is no time limit imposed. If greater than 0,
+// then the value represents the number of seconds of extended
+// play supported beyond the maxduration value.
+type VideoMaxExtended int64
+
+const (
+	VideoMaxExtendedExtensionNotAllowed         VideoMaxExtended = 0  // If blank or 0, extension is not allowed
+	VideoMaxExtendedExtensionAllowedNoTimeLimit VideoMaxExtended = -1 // If -1, extension is allowed, and there is no time limit imposed
+)
+
+// Indicates if letter-boxing of 4:3 content into a 16:9 window is
+// allowed, where 0 = no, 1 = yes.
+type VideoBoxingAllowed int8
+
+const (
+	// If greater than 0,
+	// then the value represents the number of seconds of extended
+	// play supported beyond the maxduration value.
+	VideoBoxingAllowedNo  VideoBoxingAllowed = 0 // 0 = no
+	VideoBoxingAllowedYes VideoBoxingAllowed = 1 // 1 = yes
+)
+
 // 3.2.4 Object: Video
 //
 // This object represents an in-stream video impression. Many of the fields are non-essential for minimally
@@ -123,7 +147,7 @@ type Video struct {
 	//   allowed, and there is no time limit imposed. If greater than 0,
 	//   then the value represents the number of seconds of extended
 	//   play supported beyond the maxduration value.
-	MaxExtended int64 `json:"maxextended,omitempty"`
+	MaxExtended VideoMaxExtended `json:"maxextended,omitempty"`
 
 	// Attribute:
 	//   minbitrate
@@ -150,7 +174,7 @@ type Video struct {
 	// Description:
 	//   Indicates if letter-boxing of 4:3 content into a 16:9 window is
 	//   allowed, where 0 = no, 1 = yes.
-	BoxingAllowed int8 `json:"boxingallowed,omitempty"`
+	BoxingAllowed VideoBoxingAllowed `json:"boxingallowed,omitempty"`
 
 	// Attribute:
 	//   playbackmethod

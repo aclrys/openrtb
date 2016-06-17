@@ -7,8 +7,8 @@ package openrtb
 type VideoStartDelay int64
 
 const (
-	VideoStartDelayMidRollMinInclusive VideoStartDelay = 1  // > 0 Mid-Roll (value indicates start delay in second)
-	VideoStartDelayPreRoll             VideoStartDelay = 0  // 0 Pre-Roll
-	VideoStartDelayGenericMidRoll      VideoStartDelay = -1 // -1 Generic Mid-Roll
-	VideoStartDelayGenericPostRoll     VideoStartDelay = -2 // -2 Generic Post-Roll
+	// > 0 Mid-Roll (value indicates start delay in second)
+	VideoStartDelayPreRoll         VideoStartDelay = 0  // 0 Pre-Roll
+	VideoStartDelayGenericMidRoll  VideoStartDelay = -1 // -1 Generic Mid-Roll
+	VideoStartDelayGenericPostRoll VideoStartDelay = -2 // -2 Generic Post-Roll
 )

@@ -1,5 +1,14 @@
 package openrtb
 
+//   Indicator of auction eligibility to seats named in the Direct Deals object, where 0 = all bids are accepted,
+//   1 = bids are restricted to the deals specified and the terms thereof.
+type PMPPrivateAuction int8
+
+const (
+	PMPPrivateAuctionNo  PMPPrivateAuction = 0 // 0 = all bids are accepted
+	PMPPrivateAuctionYes PMPPrivateAuction = 1 // 1 = bids are restricted to the deals specified and the terms thereof
+)
+
 // 3.2.17 Object: Pmp
 //
 // This object is the private marketplace container for direct deals between buyers and sellers that may pertain
@@ -14,7 +23,7 @@ type PMP struct {
 	// Description:
 	//   Indicator of auction eligibility to seats named in the Direct Deals object, where 0 = all bids are accepted,
 	//   1 = bids are restricted to the deals specified and the terms thereof.
-	PrivateAuction int8 `json:"private_auction,omitempty"`
+	PrivateAuction PMPPrivateAuction `json:"private_auction,omitempty"`
 
 	// Attribute:
 	//   id

@@ -1,5 +1,21 @@
 package openrtb
 
+// Indicates if the app has a privacy policy, where 0 = no, 1 = yes.
+type AppPrivacyPolicy int8
+
+const (
+	AppPrivacyPolicyNo  AppPrivacyPolicy = 0 // 0 = no
+	AppPrivacyPolicyYes AppPrivacyPolicy = 1 // 1 = yes
+)
+
+// 0 = app is free, 1 = the app is a paid version.
+type AppPaid int8
+
+const (
+	AppPaidNo  AppPaid = 0 // 0 = app is free
+	AppPaidYes AppPaid = 1 // 1 = the app is a paid version.
+)
+
 // 3.2.7 Object: App
 //
 // This object should be included if the ad supported content is a non-browser application (typically in
@@ -88,7 +104,7 @@ type App struct {
 	//   integer
 	// Description:
 	//   Indicates if the app has a privacy policy, where 0 = no, 1 = yes.
-	PrivacyPolicy int8 `json:"privacypolicy,omitempty"`
+	PrivacyPolicy AppPrivacyPolicy `json:"privacypolicy,omitempty"`
 
 	// Attribute:
 	//   paid
@@ -96,7 +112,7 @@ type App struct {
 	//   integer
 	// Description:
 	//   0 = app is free, 1 = the app is a paid version.
-	Paid int8 `json:"paid,omitempty"`
+	Paid AppPaid `json:"paid,omitempty"`
 
 	// Attribute:
 	//   publisher

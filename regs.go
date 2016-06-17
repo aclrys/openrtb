@@ -1,5 +1,14 @@
 package openrtb
 
+// Flag indicating if this request is subject to the COPPA
+// regulations established by the USA FTC, where 0 = no, 1 = yes.
+type RegsCOPPA int8
+
+const (
+	RegsCOPPANo  RegsCOPPA = 0 // 0 = no
+	RegsCOPPAYes RegsCOPPA = 1 // 1 = yes
+)
+
 // 3.2.16 Object: Regs
 //
 // This object contains any legal, governmental, or industry regulations that apply to the request. The coppa flag
@@ -14,7 +23,7 @@ type Regs struct {
 	// Description:
 	//   Flag indicating if this request is subject to the COPPA
 	//   regulations established by the USA FTC, where 0 = no, 1 = yes.
-	COPPA int8 `json:"coppa,omitempty"`
+	COPPA RegsCOPPA `json:"coppa,omitempty"`
 
 	// Attribute:
 	//   ext

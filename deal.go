@@ -1,5 +1,16 @@
 package openrtb
 
+// Optional override of the overall auction type of the bid request, where 1 = First Price,
+// 2 = Second Price Plus, 3 = the value passed in bidfloor is the agreed upon deal price. Additional
+// auction types can be defined by the exchange.
+type DealAT int8
+
+const (
+	DealATFirstPrice          DealAT = 1 // 1 = First Price
+	DealATSecondPricePlus     DealAT = 2 // 2 = Second Price Plus
+	DealATFirstBidFloorAgreed DealAT = 3 // 3 = the value passed in bidfloor is the agreed upon deal price
+)
+
 // 3.2.18 Object: Deal
 //
 // This object constitutes a specific deal that was struck a priori between a buyer and a seller. Its presence
@@ -40,14 +51,14 @@ type Deal struct {
 	//   Optional override of the overall auction type of the bid request, where 1 = First Price,
 	//   2 = Second Price Plus, 3 = the value passed in bidfloor is the agreed upon deal price. Additional
 	//   auction types can be defined by the exchange.
-	AT int8 `json:"at,omitempty"`
+	AT DealAT `json:"at,omitempty"`
 
 	// Attribute:
 	//   wseat
 	// Type:
 	//   string array
 	// Description:
-	//   Whitelist of buyer seats allowed to bid on this deal.  Seat IDs must be
+	//   Whitelist of buyer seats allowed to bid on this deal. Seat IDs must be
 	//   communicated between bidders and the exchange a priori. Omission implies no seat restrictions.
 	WSeat []string `json:"wseat,omitempty"`
 

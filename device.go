@@ -1,5 +1,32 @@
 package openrtb
 
+// Standard “Do Not Track” flag as set in the header by the
+// browser, where 0 = tracking is unrestricted, 1 = do not track.
+type DeviceDNT int8
+
+const (
+	DeviceDNTNo  DeviceDNT = 0 // 0 = tracking is unrestricted
+	DeviceDNTYes DeviceDNT = 1 // 1 = do not track.
+)
+
+// “Limit Ad Tracking” signal commercially endorsed (e.g., iOS,
+// Android), where 0 = tracking is unrestricted, 1 = tracking must
+// be limited per commercial guidelines.
+type DeviceLmt int8
+
+const (
+	DeviceLmtNo  DeviceLmt = 0 // 0 = tracking is unrestricted
+	DeviceLmtYes DeviceLmt = 1 // 1 = tracking must be limited per commercial guidelines
+)
+
+// Support for JavaScript, where 0 = no, 1 = yes.
+type DeviceJS int8
+
+const (
+	DeviceJSNo  DeviceJS = 0 // 0 = no
+	DeviceJSYes DeviceJS = 1 // 1 = yes
+)
+
 // 3.2.11 Object: Device
 //
 // This object provides information pertaining to the device through which the user is interacting. Device
@@ -31,7 +58,7 @@ type Device struct {
 	// Description:
 	//   Standard “Do Not Track” flag as set in the header by the
 	//   browser, where 0 = tracking is unrestricted, 1 = do not track.
-	DNT int8 `json:"dnt,omitempty"`
+	DNT DeviceDNT `json:"dnt,omitempty"`
 
 	// Attribute:
 	//   lmt
@@ -41,7 +68,7 @@ type Device struct {
 	//   “Limit Ad Tracking” signal commercially endorsed (e.g., iOS,
 	//   Android), where 0 = tracking is unrestricted, 1 = tracking must
 	//   be limited per commercial guidelines.
-	Lmt int8 `json:"lmt,omitempty"`
+	Lmt DeviceLmt `json:"lmt,omitempty"`
 
 	// Attribute:
 	//   ip
@@ -145,7 +172,7 @@ type Device struct {
 	//   integer
 	// Description:
 	//   Support for JavaScript, where 0 = no, 1 = yes.
-	JS int8 `json:"js,omitempty"`
+	JS DeviceJS `json:"js,omitempty"`
 
 	// Attribute:
 	//   flashver

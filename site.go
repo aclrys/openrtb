@@ -1,5 +1,21 @@
 package openrtb
 
+// Mobile-optimized signal, where 0 = no, 1 = yes.
+type SiteMobile int8
+
+const (
+	SiteMobileNo  SiteMobile = 0 // 0 = no
+	SiteMobileYes SiteMobile = 1 // 1 = yes
+)
+
+// Indicates if the site has a privacy policy, where 0 = no, 1 = yes.
+type SitePrivacyPolicy int8
+
+const (
+	SitePrivacyPolicyNo  SitePrivacyPolicy = 0 // 0 = no
+	SitePrivacyPolicyYes SitePrivacyPolicy = 1 // 1 = yes
+)
+
 // 3.2.6 Object: Site
 //
 // This object should be included if the ad supported content is a website as opposed to a non-browser
@@ -87,7 +103,7 @@ type Site struct {
 	//   integer
 	// Description:
 	//   Mobile-optimized signal, where 0 = no, 1 = yes.
-	Mobile int8 `json:"mobile,omitempty"`
+	Mobile SiteMobile `json:"mobile,omitempty"`
 
 	// Attribute:
 	//   privacypolicy
@@ -95,7 +111,7 @@ type Site struct {
 	//   integer
 	// Description:
 	//   Indicates if the site has a privacy policy, where 0 = no, 1 = yes.
-	PrivacyPolicy int8 `json:"privacypolicy,omitempty"`
+	PrivacyPolicy SitePrivacyPolicy `json:"privacypolicy,omitempty"`
 
 	// Attribute:
 	//   publisher

@@ -1,5 +1,17 @@
 package openrtb
 
+const (
+	// Latitude from -90.0 to +90.0, where negative is south.
+	GeoLatMin float64 = -90.0
+	GeoLatMax float64 = +90.0
+)
+
+const (
+	// Longitude from -180.0 to +180.0, where negative is west.
+	GeoLonMin float64 = -180.0
+	GeoLonMax float64 = +180.0
+)
+
 // 3.2.12 Object: Geo
 //
 // This object encapsulates various methods for specifying a geographic location. When subordinate to a

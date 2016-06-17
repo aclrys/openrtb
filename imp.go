@@ -1,5 +1,24 @@
 package openrtb
 
+// 1 = the ad is interstitial or full screen, 0 = not interstitial.
+type ImpInstl int8
+
+const (
+	ImpInstlNo  ImpInstl = 0 // 0 = not interstitial
+	ImpInstlYes ImpInstl = 1 // 1 = the ad is interstitial or full screen
+)
+
+// Flag to indicate if the impression requires secure HTTPS URL
+// creative assets and markup, where 0 = non-secure, 1 = secure.
+// If omitted, the secure state is unknown, but non-secure HTTP
+// support can be assumed.
+type ImpSecure int8
+
+const (
+	ImpSecureNo  ImpSecure = 0 // 0 = non-secure
+	ImpSecureYes ImpSecure = 1 // 1 = secure
+)
+
 // 3.2.2 Object: Imp
 //
 // This object describes an ad placement or impression being auctioned. A single bid request can include
@@ -18,7 +37,7 @@ type Imp struct {
 	//   string; required
 	// Description:
 	//   A unique identifier for this impression within the context of the bid request (typically, starts
-	//   with 1 and increments.
+	//   with 1 and increments).
 	ID string `json:"id"`
 
 	// Attribute:
@@ -65,7 +84,7 @@ type Imp struct {
 	//   int; default 0
 	// Description:
 	//   1 = the ad is interstitial or full screen, 0 = not interstitial.
-	Instl int8 `json:"instl,omitempty"`
+	Instl ImpInstl `json:"instl,omitempty"`
 
 	// Attribute:
 	//   tagid
@@ -104,7 +123,7 @@ type Imp struct {
 	//   creative assets and markup, where 0 = non-secure, 1 = secure.
 	//   If omitted, the secure state is unknown, but non-secure HTTP
 	//   support can be assumed.
-	Secure int8 `json:"secure,omitempty"`
+	Secure ImpSecure `json:"secure,omitempty"`
 
 	// Attribute:
 	//   iframebuster

@@ -1,5 +1,14 @@
 package openrtb
 
+// Indicates if the banner is in the top frame as opposed to an
+// iframe, where 0 = no, 1 = yes.
+type BannerTopFrame int8
+
+const (
+	BannerTopFrameNo  BannerTopFrame = 0 // 0 = no
+	BannerTopFrameYes BannerTopFrame = 1 // 1 = yes
+)
+
 // 3.2.3 Object: Banner
 //
 // This object represents the most general type of impression. Although the term “banner” may have very
@@ -126,7 +135,7 @@ type Banner struct {
 	// Description:
 	//    Indicates if the banner is in the top frame as opposed to an
 	//    iframe, where 0 = no, 1 = yes.
-	TopFrame int8 `json:"topframe,omitempty"`
+	TopFrame BannerTopFrame `json:"topframe,omitempty"`
 
 	// Attribute:
 	//   expdir
