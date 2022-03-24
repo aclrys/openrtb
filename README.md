@@ -1,17 +1,17 @@
 # openrtb
 
-[![GoDoc](https://godoc.org/github.com/prebid/openrtb?status.svg)](https://godoc.org/github.com/prebid/openrtb)
+[![GoDoc](https://godoc.org/github.com/aclrys/openrtb?status.svg)](https://godoc.org/github.com/aclrys/openrtb)
 
 [OpenRTB](//github.com/openrtb/OpenRTB) [v2.3.1](//github.com/openrtb/OpenRTB/blob/master/OpenRTB-API-Specification-Version-2-3-1-FINAL.pdf) types for Go programming language (golang)
 
 # Using
 
 ```bash
-go get -u "github.com/prebid/openrtb"
+go get -u "github.com/aclrys/openrtb"
 ```
 
 ```go
-import "github.com/prebid/openrtb"
+import "github.com/aclrys/openrtb"
 ```
 
 # History
